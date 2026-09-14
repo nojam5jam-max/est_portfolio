@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceramic Graduation Work | JUNG ESTHER</title>
+    <style>
+        /* === 기본 초기화 및 폰트 설정 === */
+        @font-face {
+            font-family: 'GowunDodum';
+            src: url('fonts/GowunDodum-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'GowunDodum', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #ffffff;
+            background-color: #0d0d0d; /* 다크 모드 배경 */
+            padding: 2rem 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* === 컨테이너 레이아웃 === */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* === 상단 네비게이션 / 뒤로가기 === */
+        nav {
+            margin-bottom: 2.5rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: #aaa;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: #ffffff;
+        }
+
+        /* === 헤더 영역 === */
+        header.project-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 2rem;
+        }
+
+        header.project-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        header.project-header .subtitle {
+            font-size: 1.1rem;
+            color: #bbb;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .meta-info span strong {
+            color: #ddd;
+        }
+
+        /* === 작품 대표 메인 대형 이미지 === */
+        .main-image-box {
+            width: 100%;
+            height: 480px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* === 작품 설명 섹션 === */
+        .description-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 3.5rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .description-section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .description-section p {
+            color: #d1d1d1;
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+        }
+
+        .description-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* === 갤러리 그리드 영역 === */
+        .gallery-title {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #ffffff;
+            padding-left: 0.8rem;
+        }
+
+        /* 2열 갤러리 그리드 */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .grid-item {
+            border-radius: 10px;
+            overflow: hidden;
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .grid-item .caption {
+            padding: 1rem;
+            font-size: 0.88rem;
+            color: #aaa;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* 세로로 길게 나오는 강조용 1열 이미지 */
+        .full-width-image {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .full-width-image img {
+            width: 100%;
+            max-height: 550px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* === 하단 푸터 === */
+        footer {
+            text-align: center;
+            padding: 3rem 0 1rem;
+            color: #666;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* 반응형 모바일 설정 */
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr; /* 모바일에서는 1열 배치 */
+            }
+            .main-image-box {
+                height: 300px;
+            }
+            .grid-item img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 1. 뒤로가기 버튼 -->
+        <nav>
+            <a href="index.html#projects" class="back-btn">
+                ← 메인 포트폴리오로 돌아가기
+            </a>
+        </nav>
+
+        <!-- 2. 작품 타이틀 영역 -->
+        <header class="project-header">
+            <h1>졸업 작품 : 도자기 메이킹 & 조형 전시</h1>
+            <div class="subtitle">Ceramic & Sculptural Art Project</div>
+            
+            <div class="meta-info">
+                <span><strong>분야:</strong> 도자 조형 / 공예</span>
+                <span><strong>제작 기간:</strong> 2024.03 - 2024.10</span>
+                <span><strong>역할:</strong> 기획, 성형, 시유, 소성 전 과정 개인 작업</span>
+            </div>
+        </header>
+
+        <!-- 3. 메인 대표 이미지 -->
+        <div class="main-image-box">
+            <img src="images/ceramic/main.jpg" alt="도자기 졸업작품 대표 이미지">
+        </div>
+
+        <!-- 4. 작품 상세 설명 -->
+        <section class="description-section">
+            <h2>작품 개요 (Concept)</h2>
+            <p>
+                본 작업은 도자기 고유의 질감과 조형적 선을 이용하여 유기적인 형태감을 표현한 졸업작품 시리즈입니다. 
+                흙이라는 자연적인 소재가 가마 속에서 열과 시간을 거치며 구체적인 형태로 완성되는 과정에 초점을 맞추었습니다.
+            </p>
+            <p>
+                물레 작업과 손 성형(Hand-building) 기법을 혼합하여 제작되었으며, 
+                특정 무늬와 유약의 우연적인 흘러내림 효과를 더해 세상에 단 하나뿐인 오리지널리티를 담아내고자 했습니다.
+            </p>
+        </section>
+
+        <!-- 5. 이미지 갤러리 (2열 배치) -->
+        <h2 class="gallery-title">Work Details & Gallery</h2>
+        <div class="image-grid">
+            <div class="grid-item">
+                <img src="images/ceramic/detail1.jpg" alt="작품 세부 사진 1">
+                <div class="caption">도자 질감 및 텍스처 디테일</div>
+            </div>
+
+            <div class="grid-item">
+                <img src="images/ceramic/detail2.jpg" alt="작품 세부 사진 2">
+                <div class="caption">측면 곡선 조형 및 형태감</div>
+            </div>
+
+            <div class="grid-item">
+                <img src="images/ceramic/process1.jpg" alt="성형 과정">
+                <div class="caption">물레 성형 및 건조 과정</div>
+            </div>
+
+            <div class="grid-item">
+                <img src="images/ceramic/process2.jpg" alt="시유 및 가마 작업">
+                <div class="caption">유약 시유 및 가마 소성 단계</div>
+            </div>
+        </div>
+
+        <!-- 6. 전시 컷 (넓은 1열 이미지) -->
+        <h2 class="gallery-title">Exhibition View</h2>
+        <div class="full-width-image">
+            <img src="images/ceramic/exhibition.jpg" alt="전시 공간 디스플레이">
+        </div>
+
+        <!-- 7. 푸터 -->
+        <footer>
+            <p>&copy; 2026 JUNG ESTHER. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
