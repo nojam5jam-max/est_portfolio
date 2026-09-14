@@ -91,25 +91,33 @@
             background-color: #007bff;
         }
 
-        /* === Home / Hero 섹션 === */
-        #home {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-        }
-        #home h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        #home p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
-        }
+     /* === Home / Hero 섹션 === */
+#home {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    
+    /* 메인 비주얼 전체 영역 글자 색상 변경 (예: 원하는 색상 지정) */
+    color: #ffffff; /* 하얀색으로 바꾸는 예시 */
+}
+
+/* 제목(h1) 색상만 따로 지정하고 싶은 경우 */
+#home h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: #f8f9fa; /* 제목만 파란색으로 바꾸는 예시 */
+}
+
+/* 설명문(p) 색상만 따로 지정하고 싶은 경우 */
+#home p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #cccccc; /* 설명문만 밝은 회색으로 바꾸는 예시 */
+}
         .btn {
             display: inline-block;
             padding: 0.8rem 1.8rem;
