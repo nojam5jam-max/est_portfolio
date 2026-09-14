@@ -19,13 +19,18 @@
             padding: 0;
             box-sizing: border-box;
         }
-        body {
-            font-family: 'GowunDodum', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    background-attachment: fixed;
-        }
+       body {
+    font-family: 'GowunDodum', -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    
+    /* 배경 이미지 적용 */
+    background-image: url('esther/images/back.jpg'); /* 이미지 경로 */
+    background-size: cover;                 /* 화면 전체에 맞게 이미지 확대/축소 */
+    background-position: center;            /* 이미지를 화면 중앙에 배치 */
+    background-repeat: no-repeat;           /* 이미지 반복 방지 */
+    background-attachment: fixed;           /* 스크롤해도 배경 이미지는 고정 */
+}
         a {
             text-decoration: none;
             color: inherit;
